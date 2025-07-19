@@ -266,7 +266,7 @@ try:
         if current_line == 0:
             total_files += 1
             
-            file_name = PATH.joinpath('logs',f'log_{datetime.now().strftime("%Y_%m_%d_%H_%M_%S")}_{total_files}.jsonl')
+            file_name = PATH.joinpath('logs',f'log_{datetime.now().strftime("%Y_%m_%d_%H_%M_%S")}_{total_files:03d}.jsonl')
             print(F'{total_files}: {file_name}')
             file = open(file_name, mode = 'w',encoding = 'utf-8')
 
