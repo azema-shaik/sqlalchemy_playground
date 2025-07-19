@@ -35,8 +35,8 @@ $ cd sqlalchemy-playground
 # 2 – Install runtime deps (SQLAlchemy, aiosqlite, faker, etc.)
 $ pip install -r requirements.txt
 
-# 3 – Generate 10k log lines split into 2k‑line chunks & persist employees
-$ python log_genrator.py -t 10000 -p 2000 -e
+# 3 – Generate 10k log lines split into 2k‑line chunks & persist employees & also cleanses previous files
+$ python log_genrator.py -t 10000 -p 2000 -e -c
 
 # 4a – Load data the **sync** way (blocks the event‑loop but simplest)
 $ python creating_tables.py

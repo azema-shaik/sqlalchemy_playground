@@ -7,7 +7,7 @@ from datetime import datetime
 from engine import engine, session, config
 from models import Base, Department, Employee, Log 
 
-
+print(f'{config.connection_url_sync = !r}')
 Base.metadata.create_all(bind = engine)
 
 with open(os.path.join(config.base_path,config.employees_info)) as emp_f:

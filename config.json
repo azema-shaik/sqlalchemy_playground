@@ -1,5 +1,5 @@
 {
-    "connection_url_sync": "sqlite:///logs_sync.db",
+    "connection_url_sync": "sqlite:///logs_sync_db.db",
     "employees_info": "employees.json",
     "logs": "logs",
     "base_path": "log_gen",

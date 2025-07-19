@@ -6,7 +6,7 @@ from sqlalchemy.ext.asyncio import AsyncAttrs
 
 class ReprMixin:
     def __create_repr__(self, attribute):
-        return f'{self.__class__.__name__}<{attribute} = {getattr(self,attribute)!r}>'
+        return f'<{self.__class__.__name__}({attribute} = {getattr(self,attribute)!r})>'
 
 class JSONMixin:
     def json(self):
@@ -49,7 +49,7 @@ class Log(Base, JSONMixin,ReprMixin):
     employee:Mapped["Employee"] = relationship(back_populates = "logs")
 
     def __repr__(self):
-        return self.__create_repr__('msg')
+        return self.__create_repr__('level')
 
 
 
