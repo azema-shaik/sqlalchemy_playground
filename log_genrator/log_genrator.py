@@ -32,7 +32,7 @@ def cleanse():
 
 
 def log_gen(lines):
-    tz = ZoneInfo('Asia/Kolkata')
+    tz = ZoneInfo('EST')
     for line in range(lines):
         dep = random.choice(list(LOG.keys()))
         level =  random.choice(["DEBUG","INFO","WARNING","ERROR","CRITICAL"])
