@@ -4,7 +4,7 @@ from sqlalchemy import ForeignKey, Text, DateTime,Uuid, String
 
 from sqlalchemy.ext.asyncio import AsyncAttrs
 
-class Repr:
+class ReprMixin:
     def __create_repr__(self, attribute):
         return f'{self.__class__.__name__}<{attribute} = {getattr(self,attribute)!r}>'
 
@@ -15,7 +15,7 @@ class JSONMixin:
 class Base(DeclarativeBase):
     ...
 
-class Department(Base, JSONMixin,Repr):
+class Department(Base, JSONMixin,ReprMixin):
     __tablename__ = "departments"
     id: Mapped[int] = mapped_column(primary_key = True, autoincrement= True)
     name: Mapped[str] = mapped_column(nullable = False)
@@ -25,7 +25,7 @@ class Department(Base, JSONMixin,Repr):
         return self.__create_repr__('name')
 
 
-class Employee(Base, JSONMixin,Repr):
+class Employee(Base, JSONMixin,ReprMixin):
     __tablename__ = "employees"
     emp_id: Mapped[str] = mapped_column(primary_key = True, nullable = False)
     first_name: Mapped[str]
@@ -38,7 +38,7 @@ class Employee(Base, JSONMixin,Repr):
     def __repr__(self):
         return self.__create_repr__('emp_id')
 
-class Log(Base, JSONMixin,Repr):
+class Log(Base, JSONMixin,ReprMixin):
     __tablename__ = "logs"
     log_id: Mapped[str] = mapped_column(Uuid, primary_key = True, nullable = False)
     employee_id: Mapped[str] = mapped_column(ForeignKey("employees.emp_id"), nullable = False)
