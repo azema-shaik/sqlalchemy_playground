@@ -3,5 +3,7 @@
     "employees_info": "employees.json",
     "logs": "logs",
     "base_path": "log_gen",
-    "connection_url_async": "sqlite+aiosqlite:///logs_async.db"
+    "connection_url_async": "sqlite+aiosqlite:///logs_async.db",
+    "celery_broker": "amqp://user:password@localhost:5672//",
+    "celery_backend": "db+sqlite:///celery.db"
 }
