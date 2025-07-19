@@ -1,0 +1,7 @@
+{
+    "connection_url_sync": "sqlite:///logs_sync.db",
+    "employees_info": "employees.json",
+    "logs": "logs",
+    "base_path": "log_gen",
+    "connection_url_async": "sqlite+aiosqlite:///logs_async.db"
+}
